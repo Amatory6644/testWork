@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TestWork" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="MyTheme" parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="CustomButtonMaterial" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ButtonThemeOverlay</item>
+    </style>
+    <style name="ButtonThemeOverlay">
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="strokeColor">@color/Focus_Grey</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/dp32</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/dp32</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/dp32</item>
+        <item name="boxCornerRadiusTopStart">@dimen/dp32</item>
+    </style>
 </resources>

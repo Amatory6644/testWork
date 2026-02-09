@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">testWork</string>
+    <string name="Have_acc">Есть аккаунт</string>
+    <string name="Save">Сохранить</string>
+    <string name="Registration">Регистрация</string>
+    <string name="Annushka">Аннушка</string>
 </resources>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="78dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            android:contentDescription="@null"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/focus_image" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="78dp"
+            android:layout_height="18dp"
+            android:layout_margin="@dimen/dp16"
+
+            android:layout_marginTop="@dimen/dp16"
+            android:contentDescription="@null"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:srcCompat="@drawable/back_image"
+            tools:ignore="ImageContrastCheck" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.05" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16"
+            android:hint="@string/Annushka"
+            android:textColorHint="@color/Focus_Grey"
+            app:boxCornerRadiusBottomEnd="@dimen/dp32"
+            app:boxCornerRadiusBottomStart="@dimen/dp32"
+            app:boxCornerRadiusTopEnd="@dimen/dp32"
+            app:boxCornerRadiusTopStart="@dimen/dp32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="@dimen/dp328"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp16"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mailLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16"
+            android:hint="@string/Annushka"
+            android:textColorHint="@color/Focus_Grey"
+            app:boxCornerRadiusBottomEnd="@dimen/dp32"
+            app:boxCornerRadiusBottomStart="@dimen/dp32"
+            app:boxCornerRadiusTopEnd="@dimen/dp32"
+            app:boxCornerRadiusTopStart="@dimen/dp32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="@dimen/dp328"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp16"
+
+                android:gravity="start"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16"
+            android:hint="@string/Annushka"
+            android:textColorHint="@color/Focus_Grey"
+            app:boxCornerRadiusBottomEnd="@dimen/dp32"
+            app:boxCornerRadiusBottomStart="@dimen/dp32"
+            app:boxCornerRadiusTopEnd="@dimen/dp32"
+            app:boxCornerRadiusTopStart="@dimen/dp32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mailLayout">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="@dimen/dp328"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp16"
+                android:gravity="start"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16"
+            android:hint="@string/Annushka"
+            android:textColorHint="@color/Focus_Grey"
+            app:boxCornerRadiusBottomEnd="@dimen/dp32"
+            app:boxCornerRadiusBottomStart="@dimen/dp32"
+            app:boxCornerRadiusTopEnd="@dimen/dp32"
+            app:boxCornerRadiusTopStart="@dimen/dp32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameLayout3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="@dimen/dp328"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp16"
+                android:gravity="start"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp32"
+            android:text="@string/Registration"
+            android:textSize="@dimen/sp32"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line1"
+            app:layout_constraintVertical_bias="0.001"
+            tools:ignore="TextContrastCheck" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_safe"
+            style="@style/CustomButtonMaterial"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16"
+            android:clickable="true"
+            android:text="@string/Save"
+            android:textColor="@color/Focus_Grey"
+
+            app:cornerRadius="@dimen/dp32"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.99"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameLayout4"
+            app:strokeColor="@color/Focus_Grey"
+
+            app:strokeWidth="@dimen/dp2"
+            tools:ignore="TextContrastCheck" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_have_account"
+            style="@style/CustomButtonMaterial"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp32"
+            android:clickable="true"
+            android:text="@string/Have_acc"
+            android:textColor="@color/black"
+
+            app:cornerRadius="32dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.01"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameLayout4"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/dp2"
+            tools:ignore="TextSizeCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
