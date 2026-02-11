@@ -3,5 +3,8 @@
     <string name="Have_acc">Есть аккаунт</string>
     <string name="Save">Сохранить</string>
     <string name="Registration">Регистрация</string>
-    <string name="Annushka">Аннушка</string>
+    <string name="Annushka">Name</string>
+    <string name="Mail">Mail</string>
+    <string name="Password">Password</string>
+    <string name="PasswordConfirm">Password Confirmation</string>
 </resources>

@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp16"
-            android:hint="@string/Annushka"
+            android:hint="@string/Mail"
             android:textColorHint="@color/Focus_Grey"
             app:boxCornerRadiusBottomEnd="@dimen/dp32"
             app:boxCornerRadiusBottomStart="@dimen/dp32"
@@ -98,11 +98,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameLayout3"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp16"
-            android:hint="@string/Annushka"
+            android:hint="@string/Password"
             android:textColorHint="@color/Focus_Grey"
             app:boxCornerRadiusBottomEnd="@dimen/dp32"
             app:boxCornerRadiusBottomStart="@dimen/dp32"
@@ -122,11 +122,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameLayout4"
+            android:id="@+id/passwordConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp16"
-            android:hint="@string/Annushka"
+            android:hint="@string/PasswordConfirm"
             android:textColorHint="@color/Focus_Grey"
             app:boxCornerRadiusBottomEnd="@dimen/dp32"
             app:boxCornerRadiusBottomStart="@dimen/dp32"
@@ -134,7 +134,7 @@
             app:boxCornerRadiusTopStart="@dimen/dp32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="@dimen/dp328"
@@ -167,7 +167,6 @@
             android:clickable="true"
             android:text="@string/Save"
             android:textColor="@color/Focus_Grey"
-
             app:cornerRadius="@dimen/dp32"
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -175,7 +174,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.99"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/passwordConfirm"
             app:strokeColor="@color/Focus_Grey"
 
             app:strokeWidth="@dimen/dp2"
@@ -197,7 +196,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.01"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/passwordConfirm"
             app:strokeColor="@color/black"
             app:strokeWidth="@dimen/dp2"
             tools:ignore="TextSizeCheck" />
