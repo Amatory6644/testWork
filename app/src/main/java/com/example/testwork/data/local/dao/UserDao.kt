@@ -13,10 +13,10 @@ interface UserDao {
     @Query("SELECT * FROM users ORDER BY email DESC")
     fun observeUsers(): Flow<List<UserEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(user: UserEntity)
 
-    @Query("SELECT * FROM users WHERE email = :email LIMIT 1")
+    @Query("SELECT * FROM users WHERE email =:email LIMIT 1")
     suspend fun getUserByEmail(email: String): UserEntity?
 
 

@@ -35,11 +35,13 @@ class MainViewModel @Inject constructor(
     init {
         observeUsers()
     }
+
     fun onFieldsChanged(name: String, email: String, password: String, passwordConfirm: String) {
-        var valid = name.isNotBlank() && email.isNotBlank() && password.isNotBlank() && passwordConfirm.isNotBlank()
-        Log.d("Valid", "name - $name email - $email password - $password pascon - $passwordConfirm")
+        var valid = name.isNotBlank() &&
+                email.isNotBlank() &&
+                password.isNotBlank() &&
+                passwordConfirm.isNotBlank()
         _isFormValid.value = valid
-        Log.d("Valid", "_isForm - $_isFormValid")
     }
 
 
@@ -51,36 +53,46 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    private fun validate(
+        name: String,
+        email: String,
+        password: String,
+        passwordConfirm: String
+    ): String? =
+        when {
+            name.length !in 1..35 ->
+                "Имя должно содержать 1 - 35 символов"
 
-    fun onSaveClicked(name: String, email: String, password: String, passwordConfirm: String) {
-        if ((name.length > 35) || (name.isEmpty())) {
-            viewModelScope.launch {
-                _toastFlow.emit("Имя должно содержать 1 - 35 символов")
-            }
-        } else if (email.length > 50 || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            viewModelScope.launch {
-                _toastFlow.emit("Проверьте корректность Email ")
-            }
-        }else if ((password.length > 64) || (password.length < 5)) {
-            viewModelScope.launch {
-                _toastFlow.emit("Пароль должен содержать 5 - 65 символов")
-            }
-        }else if (passwordConfirm != password) {
-            viewModelScope.launch {
-                _toastFlow.emit("Пароли не совпадают")
-            }
-        } else {
-            viewModelScope.launch {
-                val added = addUserUseCase(name.trim(), email.trim(), password.trim())
-                if (added) {
-                    _toastFlow.emit("Пользователь сохранён")
-                } else {
-                    _toastFlow.emit("Пользователь с таким email уже существует")
-                }
-            }
+            email.length > 50 || !Patterns.EMAIL_ADDRESS.matcher(email).matches() ->
+                "Проверьте корректность Email"
+
+            password.length !in 5..64 ->
+                "Пароль должен содержать 5 - 65 символов"
+
+            passwordConfirm != password ->
+                "Пароли не совпадают"
+
+            else -> null
         }
 
 
+fun onSaveClicked(name: String, email: String, password: String, passwordConfirm: String) {
+    val error = validate(name, email, password, passwordConfirm)
+    if (error != null) {
+        Log.d("ViewModel ", "error - $error")
+        viewModelScope.launch { _toastFlow.emit(error) }
+        return
+    }
+    viewModelScope.launch {
+        val added = addUserUseCase(name.trim(), email.trim(), password.trim())
+        _toastFlow.emit(
+            if (added) "Пользователь сохранен"
+            else "Пользователь с таким email уже существует"
+        )
     }
 }
+
+
+}
+
 

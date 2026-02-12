@@ -2,7 +2,7 @@ package com.example.testwork.data.repository
 
 import com.example.testwork.data.local.dao.UserDao
 import com.example.testwork.data.local.entity.UserEntity
-import com.example.testwork.data.local.file.UserFileStorage
+import com.example.testwork.data.security.PasswordHasher
 import com.example.testwork.domain.model.User
 import com.example.testwork.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +13,6 @@ import javax.inject.Singleton
 @Singleton
 class UserRepositoryImpl @Inject constructor(
     private val userDao: UserDao,
-    private val userFileStorage: UserFileStorage
 ) : UserRepository {
 
     override fun observeUsers(): Flow<List<User>> {
@@ -27,26 +26,23 @@ class UserRepositoryImpl @Inject constructor(
         if (existing != null) {
             return false
         }
+        val passwordHash = PasswordHasher.hash(password)
 
         val entity = UserEntity(
             name = name,
             email = email,
-            password = password
+            passwordHash = passwordHash
         )
         userDao.insert(entity)
-
-        val user = entity.toDomain()
-        userFileStorage.appendUser(user)
-
-
         return true
     }
 
     private fun UserEntity.toDomain(): User =
         User(
+            id = id,
             name = name,
             email = email,
-            password = password
+            passwordHash = passwordHash
         )
 }
 

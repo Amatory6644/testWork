@@ -7,4 +7,5 @@
     <string name="Mail">Mail</string>
     <string name="Password">Password</string>
     <string name="PasswordConfirm">Password Confirmation</string>
+
 </resources>

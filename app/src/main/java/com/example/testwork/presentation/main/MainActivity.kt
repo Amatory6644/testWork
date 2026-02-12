@@ -26,55 +26,77 @@ class MainActivity : AppCompatActivity() {
 
         val binding = AuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        collectUI(binding)
+        setupForm(binding)
+    }
+
+    private fun collectUI(binding: AuthBinding) {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.toastFlow.collect { msg ->
+                        Toast.makeText(this@MainActivity, msg, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                launch {
+                    viewModel.isFormValid.collect { valid ->
+                        with(binding.buttonSafe) {
+                            isEnabled = valid
+                            if (valid) {
+                                setBackgroundColor(
+                                    ContextCompat.getColor(
+                                        this@MainActivity,
+                                        R.color.Yellow
+                                    )
+                                )
+                                setTextColor(
+                                    ContextCompat.getColor(
+                                        this@MainActivity,
+                                        R.color.black
+                                    )
+                                )
 
-                viewModel.toastFlow.collect { msg ->
-                    Toast.makeText(this@MainActivity, msg, Toast.LENGTH_SHORT).show()
+                            } else {
+                                setTextColor(
+                                    ContextCompat.getColor(
+                                        this@MainActivity,
+                                        R.color.Focus_Grey
+                                    )
+                                )
+                                setBackgroundColor(
+                                    ContextCompat.getColor(
+                                        this@MainActivity,
+                                        R.color.Transparent
+                                    )
+                                )
+
+                            }
+                        }
+                    }
                 }
             }
         }
+    }
 
+    private fun setupForm(binding: AuthBinding) = with(binding) {
+        val name = nameLayout.editText
+        val email = mailLayout.editText
+        val password = password.editText
+        val passwordConfirm = passwordConfirm.editText
 
-        var name = binding.nameLayout.editText
-        var email = binding.mailLayout.editText
-        var password = binding.password.editText
-        var passwordConfirm = binding.passwordConfirm.editText
-
-        val button = binding.buttonSafe
-
-        lifecycleScope.launch {
-            viewModel.isFormValid.collect { valid ->
-                if (valid) {
-
-                    button.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.Yellow))
-                    button.setTextColor(ContextCompat.getColor(this@MainActivity, R.color.black))
-                    button.isEnabled = true
-                } else {
-                    button.setTextColor(ContextCompat.getColor(this@MainActivity, R.color.Focus_Grey))
-                    button.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.Transparent))
-                    button.isEnabled = false
-                }
-            }
-        }
-
-        binding.buttonSafe.setOnClickListener {
-
-            var name = binding.nameLayout.editText?.text?.toString().orEmpty().trim()
-            var email = binding.mailLayout.editText?.text?.toString().orEmpty().trim()
-            var password = binding.password.editText?.text?.toString().orEmpty().trim()
-            var passwordConfirm = binding.passwordConfirm.editText?.text?.toString().orEmpty().trim()
+        buttonSafe.setOnClickListener {
             viewModel.onSaveClicked(
-                name.toString(), email.toString(),
-                password.toString(), passwordConfirm.toString()
+                name?.text?.toString().orEmpty().trim(),
+                email?.text?.toString().orEmpty().trim(),
+                password?.text?.toString().orEmpty().trim(),
+                passwordConfirm?.text?.toString().orEmpty().trim()
             )
-
-
-
         }
 
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable?) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.onFieldsChanged(
@@ -86,13 +108,16 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            override fun afterTextChanged(s: Editable?) {}
         }
+
         name?.addTextChangedListener(textWatcher)
         email?.addTextChangedListener(textWatcher)
         password?.addTextChangedListener(textWatcher)
         passwordConfirm?.addTextChangedListener(textWatcher)
 
     }
+
+
 }
+
 
