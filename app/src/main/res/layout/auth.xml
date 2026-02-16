@@ -203,6 +203,7 @@
                 app:boxCornerRadiusTopEnd="@dimen/dp18"
                 app:boxCornerRadiusTopStart="@dimen/dp18"
                 app:hintEnabled="false"
+                android:layout_marginBottom="@dimen/gap8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/password">
@@ -218,16 +219,12 @@
                     android:textSize="14sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="40px"
-                android:layout_weight="1">
 
-            </View>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40px"
+                android:layout_marginTop="24px"
                 android:minHeight="33px"
                 android:orientation="horizontal">
 
