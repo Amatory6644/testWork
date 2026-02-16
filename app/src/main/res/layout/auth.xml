@@ -21,11 +21,10 @@
             android:id="@+id/containerTextInput"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp18"
+            android:layout_margin="@dimen/dp16"
             android:gravity="center"
-
+            android:padding="@dimen/dp16"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/dp16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -219,13 +218,17 @@
                     android:textSize="14sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40px"
+                android:layout_weight="1">
 
+            </View>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40px"
-                android:layout_margin="@dimen/dp16"
-                android:padding="2px"
+                android:minHeight="33px"
                 android:orientation="horizontal">
 
 
