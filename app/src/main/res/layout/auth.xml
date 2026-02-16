@@ -223,9 +223,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40px"
                 android:layout_margin="@dimen/dp16"
-                android:minHeight="33px"
+                android:padding="2px"
                 android:orientation="horizontal">
 
 
