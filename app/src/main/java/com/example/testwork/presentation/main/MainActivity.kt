@@ -6,11 +6,9 @@ import android.text.TextWatcher
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.testwork.R
 import com.example.testwork.databinding.AuthBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -41,38 +39,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 launch {
                     viewModel.isFormValid.collect { valid ->
-                        with(binding.buttonSafe) {
-                            isEnabled = valid
-                            if (valid) {
-                                setBackgroundColor(
-                                    ContextCompat.getColor(
-                                        this@MainActivity,
-                                        R.color.Yellow
-                                    )
-                                )
-                                setTextColor(
-                                    ContextCompat.getColor(
-                                        this@MainActivity,
-                                        R.color.black
-                                    )
-                                )
+                        binding.buttonSafe.isSelected = valid
 
-                            } else {
-                                setTextColor(
-                                    ContextCompat.getColor(
-                                        this@MainActivity,
-                                        R.color.Focus_Grey
-                                    )
-                                )
-                                setBackgroundColor(
-                                    ContextCompat.getColor(
-                                        this@MainActivity,
-                                        R.color.Transparent
-                                    )
-                                )
-
-                            }
-                        }
                     }
                 }
             }
@@ -89,8 +57,8 @@ class MainActivity : AppCompatActivity() {
             viewModel.onSaveClicked(
                 name?.text?.toString().orEmpty().trim(),
                 email?.text?.toString().orEmpty().trim(),
-                password?.text?.toString().orEmpty().trim(),
-                passwordConfirm?.text?.toString().orEmpty().trim()
+                password?.text?.toString().orEmpty(),
+                passwordConfirm?.text?.toString().orEmpty()
             )
         }
 
