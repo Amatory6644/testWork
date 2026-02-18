@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="MyTheme" parent="Theme.Material3.Light.NoActionBar">
+    <style name="MyTheme" parent="Theme.Material3.DayNight.NoActionBar">
 
         <item name="android:windowLightStatusBar">true</item>
     </style>
+
+
 
     <style name="CustomButtonMaterial" parent="Widget.MaterialComponents.Button">
         <item name="materialThemeOverlay">@style/ButtonThemeOverlay</item>
@@ -16,9 +18,9 @@
         <item name="strokeWidth">1dp</item>
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
-        <item name="boxCornerRadiusTopEnd">28px</item>
-        <item name="boxCornerRadiusBottomEnd">28px</item>
-        <item name="boxCornerRadiusBottomStart">28px</item>
-        <item name="boxCornerRadiusTopStart">28px</item>
+        <item name="boxCornerRadiusTopEnd">28dp</item>
+        <item name="boxCornerRadiusBottomEnd">28dp</item>
+        <item name="boxCornerRadiusBottomStart">28dp</item>
+        <item name="boxCornerRadiusTopStart">28dp</item>
     </style>
 </resources>
