@@ -24,7 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         val binding = AuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.editName.setText(viewModel.name)
+        binding.editMail.setText(viewModel.email)
+        binding.editPassword.setText(viewModel.password)
+        binding.editPasswordConfirm.setText(viewModel.passwordConfirm)
         collectUI(binding)
         setupForm(binding)
     }

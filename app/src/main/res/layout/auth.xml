@@ -75,12 +75,13 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameLayout"
+            style="@style/InputLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_41dp"
-            android:hint="@string/Annushka"
-            style="@style/InputLayout">
+            android:hint="@string/Annushka">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editName"
                 style="@style/InputEditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -90,12 +91,13 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/mailLayout"
+            style="@style/InputLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_41dp"
-            android:hint="@string/Mail"
-            style="@style/InputLayout">
+            android:hint="@string/Mail">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editMail"
                 style="@style/InputEditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -105,13 +107,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
+            style="@style/InputLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_41dp"
-            android:hint="@string/Password"
-            style="@style/InputLayout">
+            android:hint="@string/Password">
 
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPassword"
                 style="@style/InputEditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -121,14 +124,16 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordConfirm"
+            style="@style/InputLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_41dp"
-            android:hint="@string/PasswordConfirm"
-            style="@style/InputLayout">
+            android:hint="@string/PasswordConfirm">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPasswordConfirm"
                 style="@style/InputEditTextStyle"
                 android:layout_width="match_parent"
+
                 android:layout_height="match_parent"
                 android:hint="@string/PasswordConfirm"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -138,10 +143,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_41dp"
-            android:orientation="horizontal"
             android:layout_gravity="center_vertical"
-            android:paddingHorizontal="@dimen/_16dp"
             android:layout_marginTop="@dimen/_16dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_16dp"
             android:paddingVertical="@dimen/_4dp">
 
 

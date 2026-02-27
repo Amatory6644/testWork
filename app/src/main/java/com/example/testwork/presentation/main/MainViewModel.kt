@@ -2,6 +2,7 @@ package com.example.testwork.presentation.main
 
 import android.util.Log
 import android.util.Patterns
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testwork.domain.usecase.AddUserUseCase
@@ -15,8 +16,21 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val addUserUseCase: AddUserUseCase
+    private val addUserUseCase: AddUserUseCase,
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+    var name: String
+        get() = savedStateHandle.get<String>("name") ?: ""
+        set(value) = savedStateHandle.set("name", value)
+    var email: String
+        get() = savedStateHandle.get<String>("email") ?: ""
+        set(value) = savedStateHandle.set("email", value)
+    var password: String
+        get() = savedStateHandle.get<String>("password") ?: ""
+        set(value) = savedStateHandle.set("password", value)
+    var passwordConfirm: String
+        get() = savedStateHandle.get<String>("passwordConfirm") ?: ""
+        set(value) = savedStateHandle.set("passwordConfirm", value)
 
     private val _toastFlow = MutableSharedFlow<String>(replay = 0)
     var toastFlow = _toastFlow.asSharedFlow()
@@ -25,18 +39,18 @@ class MainViewModel @Inject constructor(
     val isFormValid: StateFlow<Boolean> = _isFormValid
 
 
-
-
-
-
     fun onFieldsChanged(name: String, email: String, password: String, passwordConfirm: String) {
+       this.name = name
+        this.email = email
+        this.password = password
+        this.passwordConfirm = passwordConfirm
+
         var valid = name.isNotBlank() &&
                 email.isNotBlank() &&
                 password.isNotBlank() &&
                 passwordConfirm.isNotBlank()
         _isFormValid.value = valid
     }
-
 
 
     private fun validate(
@@ -62,23 +76,24 @@ class MainViewModel @Inject constructor(
         }
 
 
-fun onSaveClicked(name: String, email: String, password: String, passwordConfirm: String) {
-    val error = validate(name, email, password, passwordConfirm)
-    if (error != null) {
-        Log.d("ViewModel ", "error - $error")
-        viewModelScope.launch { _toastFlow.emit(error) }
-        return
+    fun onSaveClicked(name: String, email: String, password: String, passwordConfirm: String) {
+        val error = validate(name, email, password, passwordConfirm)
+        if (error != null) {
+            Log.d("ViewModel ", "error - $error")
+            viewModelScope.launch { _toastFlow.emit(error) }
+            return
+        }
+        viewModelScope.launch {
+            val added = addUserUseCase(name.trim(), email.trim(), password)
+            _toastFlow.emit(
+                if (added) "Пользователь сохранен"
+                else "Пользователь с таким email уже существует"
+            )
+        }
     }
-    viewModelScope.launch {
-        val added = addUserUseCase(name.trim(), email.trim(), password)
-        _toastFlow.emit(
-            if (added) "Пользователь сохранен"
-            else "Пользователь с таким email уже существует"
-        )
-    }
-}
 
 
 }
+
 
 
