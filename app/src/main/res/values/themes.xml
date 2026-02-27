@@ -6,21 +6,63 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="InputEditTextStyle" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:textSize">@dimen/_14sp</item>
+        <item name="android:textAppearance">@font/noto_sans_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:paddingTop">@dimen/_0dp</item>
+        <item name="android:paddingBottom">@dimen/_0dp</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingHorizontal">@dimen/_16dp</item>
 
-
-    <style name="CustomButtonMaterial" parent="Widget.MaterialComponents.Button">
-        <item name="materialThemeOverlay">@style/ButtonThemeOverlay</item>
     </style>
-    <style name="ButtonThemeOverlay">
-        <item name="android:minHeight">0dp</item>
-        <item name="colorPrimary">@color/Dark_Fon</item>
+
+    <style name="InputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/_18dp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_18dp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_18dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_18dp</item>
+        <item name="android:paddingHorizontal">@dimen/_16dp</item>
+        <item name="android:paddingVertical">@dimen/_4dp</item>
+        <item name="android:layout_marginVertical">@dimen/_2dp</item>
+        <item name="boxStrokeWidth">@dimen/_1dp</item>
+        <item name="android:textColorHint">@color/Focus_Grey</item>
+        <item name="boxStrokeColor">@color/black</item>
+        <item name="cursorColor">@color/black</item>
+        <item name="hintEnabled">false</item>
+
+    </style>
+
+
+    <style name="CustomButtonMaterial" parent="Widget.Material3.Button">
+
+        <item name="backgroundTint">@color/Dark_Fon</item>
         <item name="strokeColor">@color/black</item>
-        <item name="strokeWidth">1dp</item>
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="boxCornerRadiusTopEnd">28dp</item>
-        <item name="boxCornerRadiusBottomEnd">28dp</item>
-        <item name="boxCornerRadiusBottomStart">28dp</item>
-        <item name="boxCornerRadiusTopStart">28dp</item>
+        <item name="strokeWidth">@dimen/_1dp</item>
+        <item name="android:paddingTop">@dimen/_0dp</item>
+        <item name="android:paddingBottom">@dimen/_0dp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_28dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_28dp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_28dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_28dp</item>
+        <item name="android:insetTop">@dimen/_0dp</item>
+        <item name="android:insetBottom">@dimen/_0dp</item>
+        <item name="android:textAppearance">@font/noto_sans_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="cornerRadius">@dimen/_28dp</item>
+        <item name="android:textSize">@dimen/_14sp</item>
+        <item name="android:clickable">true</item>
+
     </style>
+
+    <style name="CustomButtonSave" parent="CustomButtonMaterial">
+        <item name="android:backgroundTint">@color/button_save_selector</item>
+        <item name="strokeColor">@color/button_save_stroke_selector</item>
+
+
+
+    </style>
+
+
 </resources>
