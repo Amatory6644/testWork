@@ -9,170 +9,175 @@
     android:background="@color/Dark_Fon"
     tools:theme="@style/MyTheme">
 
-
-    <LinearLayout
-        android:id="@+id/containerTextInput"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:fillViewport="true">
 
         <LinearLayout
-            android:id="@+id/hat_container"
+            android:id="@+id/containerTextInput"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_56dp"
-            android:layout_marginVertical="@dimen/_10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_16dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/_78dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/focus_img" />
+
+            <LinearLayout
+                android:id="@+id/hat_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_56dp"
+                android:layout_marginVertical="@dimen/_10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_16dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/_78dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/focus_img" />
+
+                <View
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_0dp"
+                    android:layout_weight="1">
+
+                </View>
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="@dimen/_53dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/todo"
+                    app:srcCompat="@drawable/back_img"
+                    tools:ignore="ImageContrastCheck" />
+            </LinearLayout>
 
             <View
-                android:layout_width="@dimen/_0dp"
-                android:layout_height="@dimen/_0dp"
-                android:layout_weight="1">
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1dp"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/hat_container" />
 
-            </View>
 
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="@dimen/_53dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/todo"
-                app:srcCompat="@drawable/back_img"
-                tools:ignore="ImageContrastCheck" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10dp"
+                android:fontFamily="@font/geologica_regular"
+                android:gravity="center"
+                android:lineHeight="@dimen/_26dp"
+                android:paddingHorizontal="@dimen/_16dp"
+                android:text="@string/Registration"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                android:textSize="@dimen/_24sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameLayout"
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_41dp"
+                android:hint="@string/Annushka">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editName"
+                    style="@style/InputEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Annushka"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mailLayout"
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_41dp"
+                android:hint="@string/Mail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editMail"
+                    style="@style/InputEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Mail"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password"
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_41dp"
+                android:hint="@string/Password">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPassword"
+                    style="@style/InputEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Password"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordConfirm"
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_41dp"
+                android:hint="@string/PasswordConfirm">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPasswordConfirm"
+                    style="@style/InputEditTextStyle"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:hint="@string/PasswordConfirm"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_41dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/_16dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_16dp"
+                android:paddingVertical="@dimen/_4dp">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_have_account"
+                    style="@style/CustomButtonMaterial"
+                    android:layout_width="@dimen/_152dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/Have_acc"
+
+                    tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
+
+                <Space
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_0dp"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_safe"
+                    style="@style/CustomButtonSave"
+                    android:layout_width="@dimen/_152dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/Save"
+                    tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+            </LinearLayout>
+
         </LinearLayout>
-
-        <View
-            android:id="@+id/line1"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_1dp"
-            android:layout_marginHorizontal="@dimen/_16dp"
-            android:background="@color/black"
-            android:backgroundTint="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/hat_container" />
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/_10dp"
-            android:fontFamily="@font/geologica_regular"
-            android:gravity="center"
-            android:lineHeight="@dimen/_26dp"
-            android:paddingHorizontal="@dimen/_16dp"
-            android:text="@string/Registration"
-            android:textColor="@color/black"
-            android:textFontWeight="400"
-            android:textSize="@dimen/_24sp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameLayout"
-            style="@style/InputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_41dp"
-            android:hint="@string/Annushka">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editName"
-                style="@style/InputEditTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/Annushka"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/mailLayout"
-            style="@style/InputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_41dp"
-            android:hint="@string/Mail">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editMail"
-                style="@style/InputEditTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/Mail"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password"
-            style="@style/InputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_41dp"
-            android:hint="@string/Password">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editPassword"
-                style="@style/InputEditTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/Password"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordConfirm"
-            style="@style/InputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_41dp"
-            android:hint="@string/PasswordConfirm">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editPasswordConfirm"
-                style="@style/InputEditTextStyle"
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
-                android:hint="@string/PasswordConfirm"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_41dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="@dimen/_16dp"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_16dp"
-            android:paddingVertical="@dimen/_4dp">
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_have_account"
-                style="@style/CustomButtonMaterial"
-                android:layout_width="@dimen/_152dp"
-                android:layout_height="match_parent"
-                android:text="@string/Have_acc"
-
-                tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
-
-            <Space
-                android:layout_width="@dimen/_0dp"
-                android:layout_height="@dimen/_0dp"
-                android:layout_weight="1" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_safe"
-                style="@style/CustomButtonSave"
-                android:layout_width="@dimen/_152dp"
-                android:layout_height="match_parent"
-                android:text="@string/Save"
-                tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
-        </LinearLayout>
-    </LinearLayout>
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
