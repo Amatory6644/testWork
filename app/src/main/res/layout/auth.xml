@@ -10,14 +10,21 @@
     tools:theme="@style/MyTheme">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
 
         <LinearLayout
             android:id="@+id/containerTextInput"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/space_8dp"
+            android:showDividers="middle"
+            android:layout_marginHorizontal="@dimen/_16dp"
             android:orientation="vertical">
 
 
@@ -25,10 +32,8 @@
                 android:id="@+id/hat_container"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_56dp"
-                android:layout_marginVertical="@dimen/_10dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_16dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -38,8 +43,8 @@
                     app:srcCompat="@drawable/focus_img" />
 
                 <View
-                    android:layout_width="@dimen/_0dp"
-                    android:layout_height="@dimen/_0dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1">
 
                 </View>
@@ -59,36 +64,36 @@
                 android:layout_height="@dimen/_1dp"
                 android:layout_marginHorizontal="@dimen/_16dp"
                 android:background="@color/black"
-                android:backgroundTint="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/hat_container" />
+                android:backgroundTint="@color/black" />
+
+
+
 
 
             <TextView
                 android:id="@+id/textView"
+                style="@style/RegisterStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/_10dp"
-                android:fontFamily="@font/geologica_regular"
                 android:gravity="center"
-                android:lineHeight="@dimen/_26dp"
-                android:paddingHorizontal="@dimen/_16dp"
                 android:text="@string/Registration"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="@dimen/_24sp" />
+
+                />
+
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameLayout"
                 style="@style/InputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_41dp"
-                android:hint="@string/Annushka">
+                android:layout_height="32dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editName"
                     style="@style/InputEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+
                     android:hint="@string/Annushka"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -97,8 +102,8 @@
                 android:id="@+id/mailLayout"
                 style="@style/InputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_41dp"
-                android:hint="@string/Mail">
+                android:layout_height="32dp"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editMail"
@@ -106,6 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/Mail"
+
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,8 +119,8 @@
                 android:id="@+id/password"
                 style="@style/InputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_41dp"
-                android:hint="@string/Password">
+                android:layout_height="32dp"
+                >
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -123,6 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/Password"
+
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,15 +137,15 @@
                 android:id="@+id/passwordConfirm"
                 style="@style/InputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_41dp"
-                android:hint="@string/PasswordConfirm">
+                android:layout_height="32dp"
+               >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editPasswordConfirm"
                     style="@style/InputEditTextStyle"
                     android:layout_width="match_parent"
-
                     android:layout_height="match_parent"
+
                     android:hint="@string/PasswordConfirm"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -146,17 +153,18 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_41dp"
+                android:layout_height="33dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/_16dp"
                 android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_16dp"
-                android:paddingVertical="@dimen/_4dp">
+
+                >
 
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_have_account"
                     style="@style/CustomButtonMaterial"
+
                     android:layout_width="@dimen/_152dp"
                     android:layout_height="match_parent"
                     android:text="@string/Have_acc"
@@ -164,13 +172,14 @@
                     tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
 
                 <Space
-                    android:layout_width="@dimen/_0dp"
-                    android:layout_height="@dimen/_0dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_safe"
                     style="@style/CustomButtonSave"
+
                     android:layout_width="@dimen/_152dp"
                     android:layout_height="match_parent"
                     android:text="@string/Save"

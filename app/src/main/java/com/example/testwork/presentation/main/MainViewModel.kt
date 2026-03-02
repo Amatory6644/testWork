@@ -39,11 +39,13 @@ class MainViewModel @Inject constructor(
     val isFormValid: StateFlow<Boolean> = _isFormValid
 
 
+
     fun onFieldsChanged(name: String, email: String, password: String, passwordConfirm: String) {
-       this.name = name
+        this.name = name
         this.email = email
         this.password = password
         this.passwordConfirm = passwordConfirm
+
 
         var valid = name.isNotBlank() &&
                 email.isNotBlank() &&
@@ -76,7 +78,7 @@ class MainViewModel @Inject constructor(
         }
 
 
-    fun onSaveClicked(name: String, email: String, password: String, passwordConfirm: String) {
+    fun onSaveClicked() {
         val error = validate(name, email, password, passwordConfirm)
         if (error != null) {
             Log.d("ViewModel ", "error - $error")

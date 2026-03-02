@@ -15,19 +15,16 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var binding: AuthBinding
 
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = AuthBinding.inflate(layoutInflater)
+        binding = AuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.editName.setText(viewModel.name)
-        binding.editMail.setText(viewModel.email)
-        binding.editPassword.setText(viewModel.password)
-        binding.editPasswordConfirm.setText(viewModel.passwordConfirm)
+
         collectUI(binding)
         setupForm(binding)
     }
@@ -57,12 +54,7 @@ class MainActivity : AppCompatActivity() {
         val passwordConfirm = passwordConfirm.editText
 
         buttonSafe.setOnClickListener {
-            viewModel.onSaveClicked(
-                name?.text?.toString().orEmpty().trim(),
-                email?.text?.toString().orEmpty().trim(),
-                password?.text?.toString().orEmpty(),
-                passwordConfirm?.text?.toString().orEmpty()
-            )
+            viewModel.onSaveClicked()
         }
 
         val textWatcher = object : TextWatcher {
@@ -85,6 +77,9 @@ class MainActivity : AppCompatActivity() {
         email?.addTextChangedListener(textWatcher)
         password?.addTextChangedListener(textWatcher)
         passwordConfirm?.addTextChangedListener(textWatcher)
+
+
+
 
     }
 
